@@ -1,7 +1,8 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Field, ObjectType, Int } from '@nestjs/graphql';
-import { AnswersInput } from './dto/answers.input';
-import {GraphQLJSON} from 'graphql-type-json';
+import { User } from 'src/questionnaire/models/user.model';
+import { Answer } from './interfaces/answer.interface';
+import { AnswersOutput } from './graphql-types/answers.output';
 
 
 @ObjectType()
@@ -12,15 +13,17 @@ export class Evalueation {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Field()
-    @Column()
-    evaluatorId: number;
+    @Field(type => Int)
+    @OneToOne(type => User)
+    @JoinColumn()
+    evaluator: number;
 
-    @Field()
-    @Column()
-    evalueeId: number;
+    @Field(type => Int)
+    @OneToOne(type => User)
+    @JoinColumn()
+    evaluee: number;
 
-    @Field(type => GraphQLJSON)
-    @Column({type:'jsonb'})
-    answers: AnswersInput;
+    @Field(type => [AnswersOutput])
+    @Column({ type: 'jsonb' })
+    answers: Answer[];
 }

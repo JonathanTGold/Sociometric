@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { AnswersInput } from './dto/answers.input';
 import { Evalueation } from './evaluation.model';
+import { Answer } from './interfaces/answer.interface';
 
 @Injectable()
 export class EvalueationsService {
@@ -11,10 +11,10 @@ export class EvalueationsService {
     private readonly evalueationRepository: Repository<Evalueation>,
   ) {}
 
-  create(answersInput: AnswersInput): Promise<Evalueation> {
+  create(answersInput: Answer[]): Promise<Evalueation> {
     const evalueation = new Evalueation();
-    evalueation.evaluatorId = 123;
-    evalueation.evalueeId = 474;
+    evalueation.evaluator = 1;
+    evalueation.evaluee = 2;
     evalueation.answers = answersInput;
 
     return this.evalueationRepository.save(evalueation);
