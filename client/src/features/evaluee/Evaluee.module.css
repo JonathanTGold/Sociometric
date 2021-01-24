@@ -1,0 +1,32 @@
+.input {
+  width: 35px;
+  height: 35px;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border: 1px solid #b4bdc1;
+  font-weight: 600;
+}
+
+.inputBox {
+  flex: 1;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.evalueeName {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #423b3b;
+}

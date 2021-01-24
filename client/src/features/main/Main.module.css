@@ -1,0 +1,105 @@
+.container {
+  /* background: #dce1e3; */
+  padding: 0 100px;
+}
+
+.header {
+  flex: 1;
+  height: 200px;
+}
+
+.sociometricName {
+  /* background-color: #c5dcda; */
+  flex: 1;
+  justify-content: space-between;
+}
+
+.sociometricNameTitle {
+  font-size: 25px;
+  font-weight: 700;
+  padding: 32px 0;
+}
+
+.date {
+  padding: 30px 10px;
+  font-size: 20px;
+  color: #757171;
+  font-weight: 600;
+}
+
+.ratingRange {
+  /* background-color: #c1cecc; */
+  flex: 1;
+}
+
+.ratingRangeBox {
+  margin-top: 65px;
+  border: 2px solid #929090;
+  border-radius: 3px;
+  font-weight: 600;
+  color: #393636;
+}
+
+.ratingRangeGraph {
+  flex: 5;
+  padding-left: 13px;
+  padding-top: 10px;
+}
+
+.describtion {
+  flex: 2;
+  font-size: 21px;
+  display: flex;
+  /* text-align: center; */
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.graph {
+  flex: 3;
+  padding: 10px 11px 2px 11px;
+  /* background-color: cyan; */
+  justify-content: space-between;
+}
+
+.box {
+  width: 40px;
+  height: 40px;
+  padding: 6px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #dcdbdb;
+  border-radius: 3px;
+  font-size: 20px;
+  background: white;
+}
+
+.subtitles {
+  flex: 1;
+  padding: 0px 11px 10px 11px;
+  /* background-color: chartreuse; */
+  justify-content: space-between;
+}
+
+.formContaner {
+  flex: 10;
+  background: #dce1e3;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.tabs {
+  font-size: 17px;
+  font-weight: 600;
+  background: #bbbaba;
+}
+
+.activTab {
+  border-bottom: 4px solid black;
+  background: #888686;
+}
