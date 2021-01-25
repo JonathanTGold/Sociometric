@@ -1,5 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Evalueation } from 'src/evaluations/evaluation.model';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 @Entity()
@@ -16,4 +17,7 @@ export class Questionnaire {
   @Field()
   @Column()
   SubUnitName: string;
+
+  @OneToMany(type => Evalueation, evalueation => evalueation.questionnaire)
+  evaluaions: Evalueation[];
 }

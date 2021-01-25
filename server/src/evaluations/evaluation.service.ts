@@ -2,7 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Evalueation } from './evaluation.model';
-import { Answer } from './interfaces/answer.interface';
+import { EvaluationInput } from './graphql-types/evaluation.input';
+// import { Answer } from './interfaces/answer.interface';
+import { IEvalueation } from './interfaces/evaluation.interface';
 
 @Injectable()
 export class EvalueationsService {
@@ -11,13 +13,13 @@ export class EvalueationsService {
     private readonly evalueationRepository: Repository<Evalueation>,
   ) {}
 
-  create(answersInput: Answer[]): Promise<Evalueation> {
-    const evalueation = new Evalueation();
-    evalueation.evaluator = 1;
-    evalueation.evaluee = 2;
-    evalueation.answers = answersInput;
-
-    return this.evalueationRepository.save(evalueation);
+  create(evaluationsInput: IEvalueation[]): Promise<IEvalueation[]> {
+    // const evalueation = new Evalueation();
+    // evalueation.evaluator = 1;
+    // evalueation.evaluee = 2;
+    // evalueation.answers = answersInput;
+console.log(evaluationsInput)
+    return this.evalueationRepository.save(evaluationsInput);
   }
 
 //   async findAll(): Promise<User[]> {

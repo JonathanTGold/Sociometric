@@ -7,24 +7,12 @@ type Question {
   description: String!
 }
 
-type Questionnaire {
-  id: Int!
-  unitName: String!
-  SubUnitName: String!
-}
-
 type User {
   id: Int!
   firstName: String!
   nickName: String!
   lastName: String!
   unitName: String!
-}
-
-type QuestionnaireMetadata {
-  questonnaire: Questionnaire!
-  questions: [Question!]!
-  users: [User!]!
 }
 
 type AnswersOutput {
@@ -37,6 +25,20 @@ type Evalueation {
   evaluator: Int!
   evaluee: Int!
   answers: [AnswersOutput!]!
+  questionnaire: Int!
+}
+
+type Questionnaire {
+  id: Int!
+  unitName: String!
+  SubUnitName: String!
+  evaluaions: [Evalueation!]!
+}
+
+type QuestionnaireMetadata {
+  questonnaire: Questionnaire!
+  questions: [Question!]!
+  users: [User!]!
 }
 
 type Query {
@@ -44,7 +46,14 @@ type Query {
 }
 
 type Mutation {
-  addEvalueation(answresInput: [AnswersInput!]!): Evalueation!
+  addEvalueation(evaluationsInput: [EvaluationInput!]!): [Evalueation!]!
+}
+
+input EvaluationInput {
+  questionnaire: Int!
+  evaluator: Int!
+  evaluee: Int!
+  answers: [AnswersInput!]!
 }
 
 input AnswersInput {

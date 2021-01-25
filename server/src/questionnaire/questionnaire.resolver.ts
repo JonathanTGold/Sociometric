@@ -25,15 +25,16 @@ export class QuestionnaireResolver {
     @Args('questionnaireId', { type: () => Int }) questionnaireId: number)
   : Promise<QuestionnaireMetadata> {
 
-    const questionnaireMetaData = new QuestionnaireMetadata();
+    let questionnaireMetaData = new QuestionnaireMetadata();
     const questonnaire = await this.questionnaireService.getQuesionnaiteMetaData(questionnaireId);
+    
     if(questonnaire) {
       questionnaireMetaData.questonnaire = questonnaire;
       questionnaireMetaData.questions = await this.questionnaireService.getQuestions();
       questionnaireMetaData.users = await this.questionnaireService.getUsers(questonnaire.unitName);
 
     } else {
-      return null
+      questionnaireMetaData = null
     }
   
     return questionnaireMetaData;
